@@ -7,7 +7,7 @@ class CustomInputField extends StatefulWidget {
   final bool suffixIcon;
   final bool? isDense;
   final bool obscureText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   const CustomInputField(
       {Key? key,
@@ -17,7 +17,7 @@ class CustomInputField extends StatefulWidget {
       this.suffixIcon = false,
       this.isDense,
       this.obscureText = false,
-      required this.controller})
+      this.controller})
       : super(key: key);
 
   @override
