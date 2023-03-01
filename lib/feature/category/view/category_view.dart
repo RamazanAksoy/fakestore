@@ -1,7 +1,6 @@
 import 'package:fakestore/feature/category/viewModel/category_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'components/items.dart';
 
 class CategoryView extends StatelessWidget {
   CategoryView({super.key});
@@ -82,10 +81,42 @@ class CategoryView extends StatelessWidget {
                           crossAxisSpacing: 20,
                           childAspectRatio: 0.75,
                         ),
-                        itemBuilder: (context, index) => ItemCard(
-                          product: categoryViewModel.productModel?[index],
-                        ),
-                      )
+                        itemBuilder: (context, index) => GestureDetector(
+                              onTap: () {},
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.all(20),
+                                      // For  demo we use fixed height  and width
+                                      // Now we dont need them
+                                      // height: 180,
+                                      // width: 160,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      child: Hero(
+                                        tag: "${categoryViewModel.productModel?[index]?.id ?? ''}",
+                                        child: Image.network(
+                                            categoryViewModel.productModel?[index]?.image ?? ''),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 20 / 4),
+                                    child: Text(
+                                      categoryViewModel.productModel?[index]?.title ?? '',
+                                      style: TextStyle(color: Color(0xFFACACAC)),
+                                    ),
+                                  ),
+                                  Text(
+                                    "\$${categoryViewModel.productModel?[index]?.price ?? ''}",
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ))
                     : const CircularProgressIndicator();
               }),
             ),
