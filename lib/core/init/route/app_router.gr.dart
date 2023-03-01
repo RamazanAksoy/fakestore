@@ -33,6 +33,12 @@ class _$AppRouter extends RootStackRouter {
         child: RegisterView(key: args.key),
       );
     },
+    TabbarRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const TabbarView(),
+      );
+    },
   };
 
   @override
@@ -50,6 +56,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           RegisterRoute.name,
           path: 'register',
+        ),
+        RouteConfig(
+          TabbarRoute.name,
+          path: 'tabbar',
         ),
       ];
 }
@@ -100,4 +110,16 @@ class RegisterRouteArgs {
   String toString() {
     return 'RegisterRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [TabbarView]
+class TabbarRoute extends PageRouteInfo<void> {
+  const TabbarRoute()
+      : super(
+          TabbarRoute.name,
+          path: 'tabbar',
+        );
+
+  static const String name = 'TabbarRoute';
 }
