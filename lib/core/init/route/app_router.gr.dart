@@ -22,7 +22,13 @@ class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: const HomeView(),
       );
-    }
+    },
+    LoginRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const LoginView(),
+      );
+    },
   };
 
   @override
@@ -30,12 +36,16 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'home',
+          redirectTo: 'login',
           fullMatch: true,
         ),
         RouteConfig(
           HomeRoute.name,
           path: 'home',
+        ),
+        RouteConfig(
+          LoginRoute.name,
+          path: 'login',
         ),
       ];
 }
@@ -50,4 +60,16 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [LoginView]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute()
+      : super(
+          LoginRoute.name,
+          path: 'login',
+        );
+
+  static const String name = 'LoginRoute';
 }
