@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:fakestore/feature/login/model/req_user.dart';
 import 'package:fakestore/feature/login/service/Ilogin_service.dart';
 import 'package:fakestore/feature/login/service/login_service.dart';
@@ -23,9 +25,7 @@ abstract class _LoginViewModelBase with Store {
       resToken = (await loginService.login(ReqUser(
           username: textEditingControllerEmail.text, password: textEditingControllerPass.text)));
       resToken?.error == null
-          ? ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Giriş başarılı')),
-            )
+          ? context.router.replaceNamed(Routes.TABBAR)
           : ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Kullanıcı adı veya şifre hatalı')),
             );
