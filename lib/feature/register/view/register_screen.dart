@@ -7,14 +7,9 @@ import '../../../product/widget/custom_input_field.dart';
 import '../../../product/widget/page_header.dart';
 import '../../../product/widget/page_heading.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({Key? key}) : super(key: key);
+class RegisterView extends StatelessWidget {
+  RegisterView({Key? key}) : super(key: key);
 
-  @override
-  State<RegisterView> createState() => _RegisterViewState();
-}
-
-class _RegisterViewState extends State<RegisterView> {
   final _signupFormKey = GlobalKey<FormState>();
 
   @override
@@ -101,7 +96,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       CustomFormButton(
                         innerText: 'Signup',
-                        onPressed: _handleSignupUser,
+                        onPressed: () {},
                       ),
                       const SizedBox(
                         height: 18,
@@ -119,7 +114,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   fontWeight: FontWeight.bold),
                             ),
                             GestureDetector(
-                              onTap: () => context.navigateNamedTo(Routes.LOGIN),
+                              onTap: () => context.popRoute(),
                               child: const Text(
                                 'Log-in',
                                 style: TextStyle(
@@ -143,14 +138,5 @@ class _RegisterViewState extends State<RegisterView> {
         ),
       ),
     );
-  }
-
-  void _handleSignupUser() {
-    // signup user
-    if (_signupFormKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Submitting data..')),
-      );
-    }
   }
 }
