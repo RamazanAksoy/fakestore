@@ -42,7 +42,7 @@ extension NetworkEror on CoreDio {
     return ResponseModel(
         error: BaseError(
             message:
-                e.response != null ? e.response!.data['Message'].toString() : e.error.toString(),
+                e.response != null ? e.response!.data.toString() : e.error.toString(),
             type: e.type));
   }
 }

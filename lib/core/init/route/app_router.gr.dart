@@ -17,10 +17,12 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    CategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<CategoryRouteArgs>(
+          orElse: () => const CategoryRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const HomeView(),
+        child: CategoryView(key: args.key),
       );
     }
   };
@@ -30,24 +32,36 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'home',
+          redirectTo: 'category',
           fullMatch: true,
         ),
         RouteConfig(
-          HomeRoute.name,
-          path: 'home',
+          CategoryRoute.name,
+          path: 'category',
         ),
       ];
 }
 
 /// generated route for
-/// [HomeView]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
+/// [CategoryView]
+class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
+  CategoryRoute({Key? key})
       : super(
-          HomeRoute.name,
-          path: 'home',
+          CategoryRoute.name,
+          path: 'category',
+          args: CategoryRouteArgs(key: key),
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'CategoryRoute';
+}
+
+class CategoryRouteArgs {
+  const CategoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CategoryRouteArgs{key: $key}';
+  }
 }
