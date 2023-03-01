@@ -1,3 +1,4 @@
+import 'package:fakestore/feature/login/viewModel/login_view_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../product/widget/custom_form_button.dart';
@@ -5,16 +6,10 @@ import '../../../product/widget/custom_input_field.dart';
 import '../../../product/widget/page_header.dart';
 import '../../../product/widget/page_heading.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class LoginView extends StatelessWidget {
+  LoginView({Key? key}) : super(key: key);
 
-  @override
-  State<LoginView> createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
-  //
-  final _loginFormKey = GlobalKey<FormState>();
+  LoginViewModel loginViewModel = LoginViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -35,61 +30,28 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 child: SingleChildScrollView(
                   child: Form(
-                    key: _loginFormKey,
+                    key: loginViewModel.loginFormKey,
                     child: Column(
                       children: [
                         const PageHeading(
                           title: 'Log-in',
                         ),
-                        CustomInputField(
-                            labelText: 'Email',
-                            hintText: 'Your email id',
-                            validator: (textValue) {
-                              if (textValue == null || textValue.isEmpty) {
-                                return 'Email is required!';
-                              }
-
-                              return null;
-                            }),
+                        buildInputEmail(),
                         const SizedBox(
                           height: 16,
                         ),
-                        CustomInputField(
-                          labelText: 'Password',
-                          hintText: 'Your password',
-                          obscureText: true,
-                          suffixIcon: true,
-                          validator: (textValue) {
-                            if (textValue == null || textValue.isEmpty) {
-                              return 'Password is required!';
-                            }
-                            return null;
-                          },
-                        ),
+                        buildInputPass(),
                         const SizedBox(
                           height: 16,
-                        ),
-                        Container(
-                          width: size.width * 0.80,
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: () => {},
-                            child: const Text(
-                              'Forget password?',
-                              style: TextStyle(
-                                color: Color(0xff939393),
-                                fontSize: 13,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         CustomFormButton(
                           innerText: 'Login',
-                          onPressed: _handleLoginUser,
+                          onPressed: () {
+                            loginViewModel.loginUser(context);
+                          },
                         ),
                         const SizedBox(
                           height: 18,
@@ -137,12 +99,33 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  void _handleLoginUser() {
-    // login user
-    if (_loginFormKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Submitting data..')),
-      );
-    }
+  CustomInputField buildInputPass() {
+    return CustomInputField(
+      controller: loginViewModel.textEditingControllerPass,
+      labelText: 'Password',
+      hintText: 'Your password',
+      obscureText: true,
+      suffixIcon: true,
+      validator: (textValue) {
+        if (textValue == null || textValue.isEmpty) {
+          return 'Password is required!';
+        }
+        return null;
+      },
+    );
+  }
+
+  CustomInputField buildInputEmail() {
+    return CustomInputField(
+        controller: loginViewModel.textEditingControllerEmail,
+        labelText: 'Email',
+        hintText: 'Your email id',
+        validator: (textValue) {
+          if (textValue == null || textValue.isEmpty) {
+            return 'Email is required!';
+          }
+
+          return null;
+        });
   }
 }

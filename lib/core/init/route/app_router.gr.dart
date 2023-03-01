@@ -17,18 +17,14 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: const HomeView(),
-      );
-    },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const LoginView(),
+        child: LoginView(key: args.key),
       );
-    },
+    }
   };
 
   @override
@@ -40,10 +36,6 @@ class _$AppRouter extends RootStackRouter {
           fullMatch: true,
         ),
         RouteConfig(
-          HomeRoute.name,
-          path: 'home',
-        ),
-        RouteConfig(
           LoginRoute.name,
           path: 'login',
         ),
@@ -51,25 +43,25 @@ class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [HomeView]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute()
-      : super(
-          HomeRoute.name,
-          path: 'home',
-        );
-
-  static const String name = 'HomeRoute';
-}
-
-/// generated route for
 /// [LoginView]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute()
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({Key? key})
       : super(
           LoginRoute.name,
           path: 'login',
+          args: LoginRouteArgs(key: key),
         );
 
   static const String name = 'LoginRoute';
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
 }
