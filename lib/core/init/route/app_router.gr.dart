@@ -24,7 +24,13 @@ class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: LoginView(key: args.key),
       );
-    }
+    },
+    RegisterRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const RegisterView(),
+      );
+    },
   };
 
   @override
@@ -38,6 +44,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           LoginRoute.name,
           path: 'login',
+        ),
+        RouteConfig(
+          RegisterRoute.name,
+          path: 'register',
         ),
       ];
 }
@@ -64,4 +74,16 @@ class LoginRouteArgs {
   String toString() {
     return 'LoginRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [RegisterView]
+class RegisterRoute extends PageRouteInfo<void> {
+  const RegisterRoute()
+      : super(
+          RegisterRoute.name,
+          path: 'register',
+        );
+
+  static const String name = 'RegisterRoute';
 }

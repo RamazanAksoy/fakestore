@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:fakestore/feature/login/viewModel/login_view_model.dart';
 import 'package:flutter/material.dart';
 
@@ -69,10 +71,7 @@ class LoginView extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                               ),
                               GestureDetector(
-                                onTap: () => {
-                                  /*   Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => const SignupPage()))*/
-                                },
+                                onTap: () => context.navigateNamedTo(Routes.REGISTER),
                                 child: const Text(
                                   'Sign-up',
                                   style: TextStyle(
