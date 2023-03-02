@@ -14,7 +14,7 @@ abstract class _CategoryViewModelBase with Store {
 
   ICategoryServices iCategoryServices = CategoryService();
   List<ProductModel?>? productModel;
-  List<String>? items = List.empty(growable: true);
+  List<String>? items = ["electronics", "jewelery", "men's clothing", "women's clothing"];
 
   @observable
   bool isLoadingProduct = false;
@@ -25,22 +25,17 @@ abstract class _CategoryViewModelBase with Store {
   @action
   changeIndex(int index) {
     selectedIndex = index;
+    _getProductData(items?[index] ?? '');
   }
 
   @action
-  _getProductData() async {
+  _getProductData(String categoryName) async {
     isLoadingProduct = false;
-    productModel = (await iCategoryServices.getCategoryList()).data;
-    for (var i = 0; i < productModel!.length; i++) {
-      if (items!.contains(productModel?[i]?.category)) {
-      } else {
-        items?.add(productModel?[i]?.category ?? '');
-      }
-    }
+    productModel = (await iCategoryServices.getCategoryList(categoryName)).data;
     isLoadingProduct = true;
   }
 
   _onInit() {
-    _getProductData();
+    _getProductData(items?[0] ?? '');
   }
 }

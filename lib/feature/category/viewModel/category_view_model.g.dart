@@ -45,8 +45,9 @@ mixin _$CategoryViewModel on _CategoryViewModelBase, Store {
       AsyncAction('_CategoryViewModelBase._getProductData', context: context);
 
   @override
-  Future _getProductData() {
-    return _$_getProductDataAsyncAction.run(() => super._getProductData());
+  Future _getProductData(String categoryName) {
+    return _$_getProductDataAsyncAction
+        .run(() => super._getProductData(categoryName));
   }
 
   late final _$_CategoryViewModelBaseActionController =

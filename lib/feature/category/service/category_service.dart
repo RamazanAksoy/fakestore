@@ -7,13 +7,13 @@ import '../../../core/constants/enums/http_request_enum.dart';
 import '../../../core/init/network/ICoreDio.dart';
 import '../../../core/init/network/network_manager.dart';
 
-class CategoryService extends ICategoryServices{
-    ICoreDioNullSafety? networkManager = NetworkManager.instance!.coreDio;
+class CategoryService extends ICategoryServices {
+  ICoreDioNullSafety? networkManager = NetworkManager.instance!.coreDio;
 
   @override
-  Future<IResponseModel<List<ProductModel?>>> getCategoryList() async{
-  final response = await networkManager!.send<List<ProductModel>, ProductModel>(
-      EndPoints.getProduct,
+  Future<IResponseModel<List<ProductModel?>>> getCategoryList(String? categoryName) async {
+    final response = await networkManager!.send<List<ProductModel>, ProductModel>(
+      EndPoints.getProductwithCategory + (categoryName ?? ''),
       parseModel: ProductModel(),
       type: HttpTypes.GET,
     );
