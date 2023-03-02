@@ -9,5 +9,5 @@ class AppColors {
   static const green = Colors.green;
   static const yellow = Colors.yellow;
   static const white = Colors.white;
-  static const themeColor = Color(0xffa00c37);
+  static const themeColor = Color(0xff233743);
 }

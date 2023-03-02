@@ -18,13 +18,32 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     CategoryRoute.name: (routeData) {
-      final args = routeData.argsAs<CategoryRouteArgs>(
-          orElse: () => const CategoryRouteArgs());
+      final args = routeData.argsAs<CategoryRouteArgs>(orElse: () => const CategoryRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: CategoryView(key: args.key),
       );
-    }
+    },
+    LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: LoginView(key: args.key),
+      );
+    },
+    RegisterRoute.name: (routeData) {
+      final args = routeData.argsAs<RegisterRouteArgs>(orElse: () => const RegisterRouteArgs());
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: RegisterView(key: args.key),
+      );
+    },
+    TabbarRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const TabbarView(),
+      );
+    },
   };
 
   @override
@@ -38,6 +57,18 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           CategoryRoute.name,
           path: 'category',
+        ),
+        RouteConfig(
+          LoginRoute.name,
+          path: 'login',
+        ),
+        RouteConfig(
+          RegisterRoute.name,
+          path: 'register',
+        ),
+        RouteConfig(
+          TabbarRoute.name,
+          path: 'tabbar',
         ),
       ];
 }
@@ -64,4 +95,64 @@ class CategoryRouteArgs {
   String toString() {
     return 'CategoryRouteArgs{key: $key}';
   }
+}
+
+/// generated route for
+/// [LoginView]
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({Key? key})
+      : super(
+          LoginRoute.name,
+          path: 'login',
+          args: LoginRouteArgs(key: key),
+        );
+
+  static const String name = 'LoginRoute';
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [RegisterView]
+class RegisterRoute extends PageRouteInfo<RegisterRouteArgs> {
+  RegisterRoute({Key? key})
+      : super(
+          RegisterRoute.name,
+          path: 'register',
+          args: RegisterRouteArgs(key: key),
+        );
+
+  static const String name = 'RegisterRoute';
+}
+
+class RegisterRouteArgs {
+  const RegisterRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'RegisterRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [TabbarView]
+class TabbarRoute extends PageRouteInfo<void> {
+  const TabbarRoute()
+      : super(
+          TabbarRoute.name,
+          path: 'tabbar',
+        );
+
+  static const String name = 'TabbarRoute';
 }
