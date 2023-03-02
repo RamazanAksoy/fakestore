@@ -2,6 +2,7 @@
 
 class Routes {
   static const HOME = 'home';
+  static const CATEGORY = 'category';
   static const LOGIN = 'login';
   static const REGISTER = 'register';
   static const TABBAR = 'tabbar';

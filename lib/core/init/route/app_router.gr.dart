@@ -25,6 +25,14 @@ class _$AppRouter extends RootStackRouter {
         child: LoginView(key: args.key),
       );
     },
+    CategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<CategoryRouteArgs>(
+          orElse: () => const CategoryRouteArgs());
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: CategoryView(key: args.key),
+      );
+    },
     RegisterRoute.name: (routeData) {
       final args = routeData.argsAs<RegisterRouteArgs>(
           orElse: () => const RegisterRouteArgs());
@@ -52,6 +60,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           LoginRoute.name,
           path: 'login',
+        ),
+        RouteConfig(
+          CategoryRoute.name,
+          path: 'category',
         ),
         RouteConfig(
           RegisterRoute.name,
@@ -85,6 +97,30 @@ class LoginRouteArgs {
   @override
   String toString() {
     return 'LoginRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [CategoryView]
+class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
+  CategoryRoute({Key? key})
+      : super(
+          CategoryRoute.name,
+          path: 'category',
+          args: CategoryRouteArgs(key: key),
+        );
+
+  static const String name = 'CategoryRoute';
+}
+
+class CategoryRouteArgs {
+  const CategoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CategoryRouteArgs{key: $key}';
   }
 }
 
