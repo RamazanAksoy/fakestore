@@ -12,8 +12,8 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'View,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: CategoryView, path: Routes.CATEGORY, initial: true),
     AutoRoute(page: LoginView, path: Routes.LOGIN, initial: true),
+    AutoRoute(page: CategoryView, path: Routes.CATEGORY),
     AutoRoute(page: RegisterView, path: Routes.REGISTER),
     AutoRoute(page: TabbarView, path: Routes.TABBAR),
   ],

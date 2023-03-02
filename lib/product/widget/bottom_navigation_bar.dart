@@ -1,3 +1,4 @@
+import 'package:fakestore/feature/category/view/category_view.dart';
 import 'package:fakestore/feature/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,8 @@ class TabbarView extends StatefulWidget {
 class _TabbarViewState extends State<TabbarView> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    HomeView(),
+  static List<Widget> _widgetOptions = <Widget>[
+    CategoryView(),
     HomeView(),
     HomeView(),
   ];

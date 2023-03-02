@@ -17,22 +17,25 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    CategoryRoute.name: (routeData) {
-      final args = routeData.argsAs<CategoryRouteArgs>(orElse: () => const CategoryRouteArgs());
-      return MaterialPageX<dynamic>(
-        routeData: routeData,
-        child: CategoryView(key: args.key),
-      );
-    },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: LoginView(key: args.key),
       );
     },
+    CategoryRoute.name: (routeData) {
+      final args = routeData.argsAs<CategoryRouteArgs>(
+          orElse: () => const CategoryRouteArgs());
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: CategoryView(key: args.key),
+      );
+    },
     RegisterRoute.name: (routeData) {
-      final args = routeData.argsAs<RegisterRouteArgs>(orElse: () => const RegisterRouteArgs());
+      final args = routeData.argsAs<RegisterRouteArgs>(
+          orElse: () => const RegisterRouteArgs());
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: RegisterView(key: args.key),
@@ -51,16 +54,16 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'category',
+          redirectTo: 'login',
           fullMatch: true,
-        ),
-        RouteConfig(
-          CategoryRoute.name,
-          path: 'category',
         ),
         RouteConfig(
           LoginRoute.name,
           path: 'login',
+        ),
+        RouteConfig(
+          CategoryRoute.name,
+          path: 'category',
         ),
         RouteConfig(
           RegisterRoute.name,
@@ -71,30 +74,6 @@ class _$AppRouter extends RootStackRouter {
           path: 'tabbar',
         ),
       ];
-}
-
-/// generated route for
-/// [CategoryView]
-class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
-  CategoryRoute({Key? key})
-      : super(
-          CategoryRoute.name,
-          path: 'category',
-          args: CategoryRouteArgs(key: key),
-        );
-
-  static const String name = 'CategoryRoute';
-}
-
-class CategoryRouteArgs {
-  const CategoryRouteArgs({this.key});
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'CategoryRouteArgs{key: $key}';
-  }
 }
 
 /// generated route for
@@ -118,6 +97,30 @@ class LoginRouteArgs {
   @override
   String toString() {
     return 'LoginRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [CategoryView]
+class CategoryRoute extends PageRouteInfo<CategoryRouteArgs> {
+  CategoryRoute({Key? key})
+      : super(
+          CategoryRoute.name,
+          path: 'category',
+          args: CategoryRouteArgs(key: key),
+        );
+
+  static const String name = 'CategoryRoute';
+}
+
+class CategoryRouteArgs {
+  const CategoryRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CategoryRouteArgs{key: $key}';
   }
 }
 
