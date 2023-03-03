@@ -87,11 +87,13 @@ class CategoryView extends StatelessWidget {
   GridView buildGridView() {
     return GridView.builder(
         itemCount: categoryViewModel.productModel?.length ?? 0,
+        physics: const BouncingScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
           childAspectRatio: 0.75,
+          
         ),
         itemBuilder: (context, index) => GestureDetector(
               onTap: () {},
@@ -119,7 +121,7 @@ class CategoryView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 20 / 4),
                       child: Text(
                         categoryViewModel.productModel?[index]?.title ?? '',
-                        style: TextStyle(color: Color(0xFFACACAC)),
+                        style: const TextStyle(color: Color(0xFFACACAC)),
                       ),
                     ),
                     Row(
@@ -127,9 +129,9 @@ class CategoryView extends StatelessWidget {
                       children: [
                         Text(
                           "\$${categoryViewModel.productModel?[index]?.price ?? ''}",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.add))
+                        IconButton(onPressed: () {}, icon: const Icon(Icons.add))
                       ],
                     )
                   ],
