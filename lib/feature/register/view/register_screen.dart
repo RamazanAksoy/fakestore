@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:flutter/material.dart';
-
 import '../../../product/widget/custom_form_button.dart';
 import '../../../product/widget/custom_input_field.dart';
 import '../../../product/widget/page_header.dart';

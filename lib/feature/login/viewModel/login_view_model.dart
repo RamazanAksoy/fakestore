@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
 import 'package:auto_route/auto_route.dart';
 import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:fakestore/core/init/cache/locale_manager.dart';
@@ -6,7 +8,6 @@ import 'package:fakestore/feature/login/service/Ilogin_service.dart';
 import 'package:fakestore/feature/login/service/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/base/model/IResponseModel.dart';
 import '../model/res_token.dart';

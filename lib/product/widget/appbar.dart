@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +33,7 @@ class AppBarWidget extends StatelessWidget {
                     },
                     icon: Image.asset(AppImages.instance.backButton,
                         height: 1.5.h, color: Colors.black87)),
-            title ?? Text(""),
+            title ?? const Text(""),
             rightIcon ??
                 Container(
                   width: 10.w,

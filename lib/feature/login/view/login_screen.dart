@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:auto_route/auto_route.dart';
 import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:fakestore/feature/login/viewModel/login_view_model.dart';

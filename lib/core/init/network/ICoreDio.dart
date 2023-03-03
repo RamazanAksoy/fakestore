@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import '../../base/model/IResponseModel.dart';
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';

@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, deprecated_member_use
 
 import 'package:fakestore/feature/category/viewModel/category_view_model.dart';
 import 'package:fakestore/product/utils/box_decoration.dart';

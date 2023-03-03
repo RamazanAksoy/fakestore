@@ -24,7 +24,7 @@ BoxDecoration customBoxDecoration({
                 BoxShadow(
                     color: Colors.black54.withOpacity(0.3),
                     blurRadius: 0.001,
-                    offset: Offset(0.0, 0.1))
+                    offset: const Offset(0.0, 0.1))
               ]
             : []);
 

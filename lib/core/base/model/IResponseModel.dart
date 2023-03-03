@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields, file_names
+
 import 'base_error.dart';
 
 abstract class IResponseModel<T> {

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:fakestore/feature/login/model/res_token.dart';
 
 import '../../../core/base/model/IResponseModel.dart';

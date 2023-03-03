@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:auto_route/auto_route.dart';
 import 'package:fakestore/core/constants/routes/navigation_constants.dart';
 import 'package:fakestore/core/init/cache/locale_manager.dart';
